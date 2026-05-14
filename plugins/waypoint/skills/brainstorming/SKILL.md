@@ -40,6 +40,49 @@ research → scope check → capability discussion → phase decomposition
 
 ## Conversation rules
 
+- **Dialogue over interrogation.** This is a back-and-forth discussion,
+  not a structured Q&A. React to what the user says, push back,
+  explore implications, offer observations. The user should feel like
+  they are thinking alongside the agent, not answering a form.
+- **Stay on a topic until it is resolved.** Do not move to the next
+  topic until the current one is clearly understood and the user has
+  confirmed it — explicitly or by a response that makes it unambiguous.
+  If something is ambiguous, dig in: ask a follow-up, offer a reframe,
+  surface a tension. Never drop a topic mid-air to move the process
+  along.
+- **One open thread at a time.** Do not introduce a new topic while
+  another is still unresolved. If the user raises something tangential,
+  acknowledge it and park it: *"Good point — let's come back to that
+  once we've settled X."*
+- **YAGNI ruthlessly.** If something isn't clearly necessary for this
+  milestone, push it out of scope. Default to less. Be willing to
+  argue for a tighter scope if the user is over-scoping.
+- **Offer structure when it helps, not by default.** Multiple choice
+  options are a tool, not a template. Use them when the space of
+  reasonable answers is bounded and enumerable. Avoid them when the
+  question is genuinely open or when options would artificially
+  constrain the user's thinking.
+- **Explore alternatives for phase decomposition.** This is the one
+  place where offering 2–3 structured options is always appropriate,
+  because the tradeoffs between decomposition strategies are concrete
+  and worth making explicit.
+- **Incremental validation.** Once a topic is settled, reflect back a
+  crisp summary of what was agreed and get confirmation before moving
+  on. This is a checkpoint, not a form submission — the user can
+  reopen anything at any time.
+- **Redirect implementation drift.** If the conversation moves toward
+  specific tech choices, library selection, or low-level
+  implementation details, redirect: *"That's a phase planning
+  decision — let's nail down what this milestone delivers first."*
+  Conceptual architecture (high-level components, rough data flows,
+  major system boundaries) is allowed when it genuinely helps clarify
+  scope or justify phase decomposition. The test: does it help define
+  *what* gets built, or is it deciding *how*? The former is fine; the
+  latter is not.
+- **Decompose before refining.** If the milestone sounds like multiple
+  independent capabilities, flag this before going deeper on any of
+  them.
+
 ## Step 1 — Research context (silent)
 
 ## Step 2 — Scope check
