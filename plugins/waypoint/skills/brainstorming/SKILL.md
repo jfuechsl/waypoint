@@ -220,4 +220,31 @@ Deliverable**, and **Handoff** (what the next phase can rely on).
 
 ## Step 5 — Incremental validation
 
+Present the full milestone definition section by section. Wait for
+explicit approval of each section before showing the next. If the
+user wants changes, make them and re-present that section.
+
+Present in this order, one at a time:
+
+1. **Goal** — one crisp paragraph.
+2. **Scope** (bulleted deliverables) + **Out of Scope** (bulleted
+   exclusions).
+3. **Done When** — verifiable criteria. Always includes both: *all
+   phases complete* AND *zero `STUB[ms-<slug>]` comments remain
+   (`grep -r "STUB\[ms-<slug>" src/` returns no results)*.
+4. **Phases table** — all phases with **Focus**, **Key Deliverable**,
+   **Handoff**.
+
+After all four sections are approved, confirm once:
+
+> *"Ready to write the milestone file?"*
+
+Then proceed to Step 6.
+
+**Slug resolution.** If `$ARGUMENTS` carried a slug at invocation
+time, use it from the start. If not, derive a candidate slug from the
+agreed Goal sentence at this point (before writing) and ask the user
+to confirm or override. A slug coined from a vague seed phrase is
+worse than one coined from a settled capability.
+
 ## Step 6 — Write artifacts
