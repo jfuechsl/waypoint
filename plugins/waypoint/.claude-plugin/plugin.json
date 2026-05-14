@@ -1,7 +1,7 @@
 {
   "name": "waypoint",
   "description": "Structured milestone and phase planning for Claude Code. Tracks progress, enforces phase sequencing, prevents incomplete milestones, and maintains living architecture documentation.",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "author": {
     "name": "Johann Fuechsl"
   },
