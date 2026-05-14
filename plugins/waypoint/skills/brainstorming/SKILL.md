@@ -199,14 +199,14 @@ Use this shape (adapt the content to the milestone):
 > *Phase 1: Core capability, end-to-end but minimal*
 > *Phase 2: Edge cases and error handling*
 > *Phase 3: Polish and observability*
-> *→ Good if you want something working quickly to validate the*
-> *approach.*
+> *→ Good if you want something working quickly to validate the
+> approach.*
 >
 > *Option B — Depth first (2 phases)*
 > *Phase 1: Full implementation of the primary flow*
 > *Phase 2: Secondary flows and hardening*
-> *→ Good if the primary flow is well understood and unlikely to*
-> *change.*
+> *→ Good if the primary flow is well understood and unlikely to
+> change.*
 >
 > *Option C — Foundation first (3 phases)*
 > *Phase 1: Data model and core abstractions*
