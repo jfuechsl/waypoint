@@ -147,6 +147,34 @@ Do not auto-create files for parked sub-milestones.
 
 ## Step 3 — Capability and scope discussion
 
+An open dialogue, not a sequential questionnaire. The goal is to
+reach shared clarity on five resolution topics — work through them
+conversationally, in whatever order the discussion naturally leads:
+
+- **Goal clarity.** What can the system or user do after this
+  milestone that they can't do now? Probe until this can be stated as
+  a single crisp capability sentence, not a feature list.
+- **Beneficiary.** Who or what benefits — end user, developer, other
+  systems? This often sharpens scope naturally.
+- **Success signal.** How would you know this milestone is done if
+  you came back after a month away? Push for something observable
+  and verifiable.
+- **Existing foundation.** Which parts of what's already built does
+  this milestone build on? Cross-check against context research —
+  surface connections the user may not have mentioned.
+- **Scope boundary.** What's explicitly out of scope? Things that
+  might seem related but won't be tackled here. When the user is
+  vague, name adjacent things from context research and ask directly:
+  *"In or out?"*
+
+Treat these as discussion topics, not a checklist. Many will resolve
+naturally through conversation without needing a direct question.
+Stay on each topic until the answer is unambiguous and confirmed,
+then move on. When a topic is settled, reflect it back briefly before
+continuing:
+
+> *"So the goal is X, and Y is explicitly out — does that capture it?"*
+
 ## Step 4 — Phase decomposition
 
 ## Step 5 — Incremental validation
