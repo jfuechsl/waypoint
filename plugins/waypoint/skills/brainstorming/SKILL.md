@@ -177,6 +177,47 @@ continuing:
 
 ## Step 4 — Phase decomposition
 
+The most important output of brainstorming. Phases must be:
+
+- **Strictly sequential** — phase N cannot start until phase N-1 is
+  complete.
+- **Independently shippable** — each phase ends with the system in a
+  coherent, testable, committable state.
+- **Capability-level** — described by what becomes possible, not by
+  how it is built.
+- **Appropriately sized** — not too fine-grained (every small task)
+  and not too coarse (the whole milestone in two steps).
+
+Propose **2–3 alternative phase decompositions** and explain the
+tradeoff of each. This is the one place where structured options are
+mandatory — the tradeoffs are concrete and worth making explicit.
+Use this shape (adapt the content to the milestone):
+
+> *"Here are three ways to break this into phases:*
+>
+> *Option A — Breadth first (3 phases)*
+> *Phase 1: Core capability, end-to-end but minimal*
+> *Phase 2: Edge cases and error handling*
+> *Phase 3: Polish and observability*
+> *→ Good if you want something working quickly to validate the*
+> *approach.*
+>
+> *Option B — Depth first (2 phases)*
+> *Phase 1: Full implementation of the primary flow*
+> *Phase 2: Secondary flows and hardening*
+> *→ Good if the primary flow is well understood and unlikely to*
+> *change.*
+>
+> *Option C — Foundation first (3 phases)*
+> *Phase 1: Data model and core abstractions*
+> *Phase 2: Business logic on top of phase 1*
+> *Phase 3: Integration and exposure*
+> *→ Good if other milestones will build on the same foundation."*
+
+Ask the user to pick an option or propose a variant. Then refine the
+chosen decomposition: for each phase, confirm **Focus**, **Key
+Deliverable**, and **Handoff** (what the next phase can rely on).
+
 ## Step 5 — Incremental validation
 
 ## Step 6 — Write artifacts
