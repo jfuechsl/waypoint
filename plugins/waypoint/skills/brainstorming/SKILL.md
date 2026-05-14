@@ -248,3 +248,42 @@ to confirm or override. A slug coined from a vague seed phrase is
 worse than one coined from a settled capability.
 
 ## Step 6 — Write artifacts
+
+Use the existing milestone skeleton — do not duplicate it, do not
+inline it. From this skill's directory, the skeleton resolves at
+`../waypoint/assets/milestone_skeleton.md` (full source path:
+`plugins/waypoint/skills/waypoint/assets/milestone_skeleton.md`).
+
+Create `docs/milestones/ms-<slug>.md` from the skeleton. Fill every
+section from the approved definition:
+
+- **Header.** Status = `Not started`, Created = today's date,
+  Completed = `—`.
+- **Goal**, **Scope**, **Out of Scope**, **Done When** — from the
+  approved definition. Done When must include the zero-stubs grep
+  criterion (already in the skeleton boilerplate; verify it is
+  retained).
+- **Phases table.** All phases with **Focus**, **Key Deliverable**,
+  **Handoff** filled in; **Design Doc** = `TBD`, **Plan** = `TBD`,
+  **Status** = `Not started`.
+- **Architecture References** — leave the placeholder row
+  (`_(none yet)_`). Populated later during phase planning.
+- **Decisions Log** — leave the placeholder row (`_(none yet)_`).
+  Populated later during phase planning and completion.
+- **Deferred Wiring** — leave the placeholder row (`_(none)_`).
+  Populated during implementation.
+- **How to Continue in a New Session** — keep the skeleton text;
+  substitute `<slug>` references with the milestone slug.
+
+Append a row to the **Active Milestones** table in `docs/roadmap.md`:
+
+```
+| ms-<slug> | <one-sentence description> | Not started | [ms-<slug>.md](milestones/ms-<slug>.md) |
+```
+
+Confirm to the user what was written and where. End with the
+follow-up pointer:
+
+> *"Milestone `ms-<slug>` written to
+> `docs/milestones/ms-<slug>.md` and added to the roadmap. When
+> ready, run `/waypoint:phase <slug> 1` to start planning phase 1."*
