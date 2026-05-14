@@ -115,21 +115,12 @@ When a decision with lasting impact is made:
 
 ## Situation 2 — New milestone
 
-When the user wants to add a milestone:
-
-1. Ask: slug, one-sentence goal, and any known dependencies on other milestones.
-2. Based on the goal and scope, propose a logical phase breakdown. Phases are
-   strictly sequential — each phase must fully complete before the next begins,
-   and each phase's output is the foundation for the next. Good phase boundaries
-   are points where the system is in a coherent, testable, committable state.
-   Present the proposed phases to the user and get confirmation before writing.
-3. Create `docs/milestones/ms-<slug>.md` from `assets/milestone_skeleton.md`.
-   Fill in the header, Goal, scope, and the confirmed phase breakdown including
-   each phase's focus, key deliverable, and handoff note.
-4. Add a row to the active table in `docs/roadmap.md`:
-   `| ms-<slug> | <description> | Not started | [ms-<slug>.md](milestones/ms-<slug>.md) |`
-5. No sequencing is implied between milestones. If this milestone depends on
-   another, note it explicitly in the milestone file's Goal section.
+When the user wants to add a milestone, invoke the
+`waypoint:brainstorming` skill. It owns the full milestone-definition
+flow: context research, scope assessment, capability and scope
+discussion, phase decomposition, incremental validation, and writing
+`docs/milestones/ms-<slug>.md` plus the row in `docs/roadmap.md`. Do
+not duplicate any of those steps here.
 
 ---
 
