@@ -24,6 +24,20 @@ research → scope check → capability discussion → phase decomposition
 
 ## What this skill must never do
 
+- Ask about specific implementation technology, library choices, or
+  low-level implementation details. Conceptual architecture —
+  high-level components, rough data flows, system boundaries — is
+  allowed when it aids scoping.
+- Write the milestone file before all four definition sections
+  (Goal, Scope/Out of Scope, Done When, Phases table) are individually
+  approved.
+- Ask more than one question per turn.
+- Skip the context research step.
+- Proceed with a milestone that should be decomposed into multiple
+  milestones.
+- Add entries to **Architecture References** or **Decisions Log** — those
+  belong to phase planning and completion, not milestone definition.
+
 ## Conversation rules
 
 ## Step 1 — Research context (silent)
