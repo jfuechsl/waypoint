@@ -85,6 +85,35 @@ research → scope check → capability discussion → phase decomposition
 
 ## Step 1 — Research context (silent)
 
+Before asking the user anything, read the project's existing
+documentation. Do not narrate each file read.
+
+Read in this order:
+
+1. `docs/roadmap.md` — active milestones, status, descriptions.
+2. All active `docs/milestones/ms-*.md` files — goals, scope, phase
+   status, decisions log, architecture references.
+3. `docs/milestones/archive/index.md` — completed milestone history.
+4. Any `docs/architecture/*.md` files — existing architectural
+   decisions.
+5. `AGENTS.md` or `CLAUDE.md` — project working conventions if present.
+
+After reading, produce an internal summary (do not show the user):
+
+- What the project currently does.
+- What gaps or natural next steps exist.
+- Which existing milestones are relevant to what the user is about
+  to define.
+
+**Pre-init guard.** If `docs/roadmap.md` does not exist, stop
+immediately and tell the user:
+
+> *"This project isn't initialized for Waypoint yet — run
+> `/waypoint:init` first, then come back."*
+
+Do not proceed in a half-initialized state. Do not offer to run
+`/waypoint:init` — that is a separate, deliberate user action.
+
 ## Step 2 — Scope check
 
 ## Step 3 — Capability and scope discussion
