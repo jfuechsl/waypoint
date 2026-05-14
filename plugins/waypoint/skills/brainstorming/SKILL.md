@@ -8,8 +8,7 @@ description: >
   beneficiary, success signal, foundation, and boundary, presents
   2-3 phase decomposition options, validates each section
   incrementally, and writes docs/milestones/ms-<slug>.md plus the
-  roadmap row. Triggers on phrases like "new milestone",
-  "add milestone", or invocation from /waypoint:milestone.
+  roadmap row.
 ---
 
 # Waypoint Brainstorming Skill
@@ -113,6 +112,11 @@ immediately and tell the user:
 
 Do not proceed in a half-initialized state. Do not offer to run
 `/waypoint:init` — that is a separate, deliberate user action.
+
+**Slug from arguments.** If `$ARGUMENTS` carried a slug at invocation
+time, note it now and use it throughout the conversation (e.g. when
+referring to the milestone before it is written). If no slug was
+passed, leave slug resolution for Step 5.
 
 ## Step 2 — Scope check
 
