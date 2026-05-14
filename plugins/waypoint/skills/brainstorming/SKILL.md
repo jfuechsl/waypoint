@@ -116,6 +116,35 @@ Do not proceed in a half-initialized state. Do not offer to run
 
 ## Step 2 — Scope check
 
+Open with a brief, neutral two-to-three sentence summary of what was
+found in context research:
+
+> *"I've reviewed the project. Here's where things stand: [2–3
+> sentences on current state]. Now let's define the new milestone."*
+
+Then ask the user to describe the milestone in their own words (one
+open-ended question — not a multi-part one).
+
+After their answer, apply the scope assessment. A milestone is too
+large if it:
+
+- Delivers multiple independent capabilities that could each stand
+  alone.
+- Would naturally be described as "X and Y and Z".
+- Cannot be summarised in one crisp sentence.
+
+If too large: do not start refining details. Help the user decompose:
+
+> *"This sounds like it might cover [A], [B], and [C] — these could
+> be separate milestones. Want to split them, or keep them together
+> and explain why?"*
+
+If the user chooses to split, ask which sub-milestone they want to
+define **now**. The others are surfaced verbally and parked — they
+re-enter this flow on their own later `/waypoint:milestone` run. The
+current invocation focuses on the single chosen sub-milestone only.
+Do not auto-create files for parked sub-milestones.
+
 ## Step 3 — Capability and scope discussion
 
 ## Step 4 — Phase decomposition
