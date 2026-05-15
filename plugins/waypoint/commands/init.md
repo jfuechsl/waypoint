@@ -53,6 +53,22 @@ When a decision with lasting impact is made (during planning or implementation):
 ### Completing a milestone
 A milestone CANNOT be marked complete while any STUB[ms-<slug>] comment exists.
 Run the grep to verify zero results before closing.
+
+### Acceptance Criteria
+
+A milestone cannot be marked complete while any AC has:
+- status: ⬜ untested  (run /waypoint:done to trigger verification)
+- status: ❌ failed    (fix the failure, or change type to `uat` and document why)
+- verify: TODO         (assign and generate verification during the phase that delivers the AC)
+
+UAT-type criteria (verify: manual) must have status set to ✅ passed
+explicitly by the user before /waypoint:done will proceed.
+
+Editing an AC's body, format, type, or verify command after it has
+passed resets its status to ⬜ untested. Trivial title edits do not.
+
+Do not invent or skip ACs to unblock completion. If a criterion cannot
+be tested automatically, change its type to `uat` and document why.
 ---
 
 8. Confirm with the user before writing any files.
