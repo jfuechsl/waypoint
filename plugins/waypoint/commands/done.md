@@ -47,6 +47,27 @@ If all phases are now ✅ Complete, proceed:
 
    If any results are found: STOP. The milestone cannot be closed.
    Report the remaining stubs and ask the user how to handle them.
+5a. Pre-flight AC check. Print the AC summary line: `ACs: N total —
+    X ✅ / Y ⬜ / Z ❌ / W manual`. Scan for any AC with `verify: TODO`.
+    If found, STOP — list them and prompt the user that verify scripts
+    must be generated (likely via a missed `/waypoint:phase` step)
+    before the milestone can close. Do not flip status.
+5b. Run verifies. For each AC with `verify:` set to a real shell
+    command (i.e., not `TODO`, not `manual`): run the command
+    sequentially, capture its exit code, and update the milestone
+    file's `status:` field — `✅ passed` on exit 0, `❌ failed` on any
+    other exit.
+5c. Handle failures. If any AC ended `❌ failed`: STOP. Print the
+    failure output for each, print the updated AC summary line, and
+    prompt the user to either fix the implementation or — if the
+    criterion genuinely cannot be tested automatically — change the
+    AC's type to `uat` and document why. Do not flip status. Do not
+    auto-retry; the user re-invokes `/waypoint:done` after fixing.
+5d. Manual / UAT check. For each AC with `verify: manual`: confirm
+    the user has set `status: ✅ passed`. If any is still
+    `⬜ untested`, STOP and list them, prompting the user to perform
+    the UAT and update status. Do not flip status.
+5e. All passed. Only when every AC is `✅ passed` proceed to step 6.
 6. If zero results:
    - Set Status to ✅ Complete and record the completion date in the
      milestone file header.
