@@ -247,13 +247,22 @@ Present in this order, one at a time:
 1. **Goal** — one crisp paragraph.
 2. **Scope** (bulleted deliverables) + **Out of Scope** (bulleted
    exclusions).
-3. **Done When** — verifiable criteria. Always includes both: *all
-   phases complete* AND *zero `STUB[ms-<slug>]` comments remain
-   (`grep -r "STUB\[ms-<slug>" src/` returns no results)*.
+3. **Done When** — verifiable criteria. Always includes all three:
+   *all phases complete*, *zero `STUB[ms-<slug>]` comments remain
+   (`grep -r "STUB\[ms-<slug>" src/` returns no results)*, and *all
+   Acceptance Criteria ✅ passed*.
 4. **Phases table** — all phases with **Focus**, **Key Deliverable**,
    **Handoff**.
+5. **Acceptance Criteria** — propose 2–4 (occasionally more) criteria
+   covering what was discussed in Step 3. For each, pick the format
+   that best fits its nature (gherkin, user-story, decision-table,
+   ears, sequence, bpmn) and the type (capability, invariant,
+   integration, performance, uat). See the Appendix for format and
+   type reference. Set `verify: TODO` and `status: ⬜ untested` for
+   non-`uat` ACs; for `uat`, set `verify: manual`. The user may push
+   back on format, type, or wording; iterate until approved.
 
-After all four sections are approved, confirm once:
+After all five sections are approved, confirm once:
 
 > *"Ready to write the milestone file?"*
 
