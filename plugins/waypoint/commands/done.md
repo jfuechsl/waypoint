@@ -27,6 +27,13 @@ Read the milestone file. Identify the slug and phase number.
 4. Update the phase row in the Phases table:
    - Set Design Doc and Plan links if still TBD.
    - Set Status to ✅ Complete.
+4a. AC verify-script presence check. For any AC whose
+    verify-generation was assigned to this phase, confirm the
+    script/test file exists and the milestone file's `verify:` field
+    is no longer `TODO`. If a verify is still `TODO`, flag the user
+    and ask whether the AC was actually delivered. Do not run the
+    verify command at phase completion — verification runs only at
+    milestone completion.
 
 ---
 
