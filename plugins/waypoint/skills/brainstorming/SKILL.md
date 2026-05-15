@@ -5,7 +5,7 @@ description: >
   Invoked by /waypoint:milestone and by the waypoint skill's
   "new milestone" situation. Researches existing project state,
   assesses scope, drives a focused discussion through goal,
-  beneficiary, success signal, foundation, and boundary, presents
+  beneficiary, acceptance criteria, foundation, and boundary, presents
   2-3 phase decomposition options, validates each section
   incrementally, and writes docs/milestones/ms-<slug>.md plus the
   roadmap row.
