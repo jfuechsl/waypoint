@@ -40,6 +40,14 @@ in the milestone's Deferred Wiring table. Both steps are required. Stubs may
 only reference the current milestone's slug, and a milestone cannot close
 while any of its stubs remain in the code.
 
+**Acceptance Criteria.** Each milestone declares structured acceptance
+criteria (ACs) in its file — business-level success criteria in
+whichever format fits each one (gherkin, user-story, decision-table,
+EARS, sequence diagram, BPMN). Non-UAT criteria are verified
+automatically by a `verify:` command at milestone completion; UAT
+criteria require human sign-off. A milestone cannot be marked complete
+while any AC is untested, failed, or has no verify script.
+
 **Architecture docs.** Living documentation in `docs/architecture/` updated
 automatically as part of phase planning and phase completion. Each decision
 is logged in the milestone file's Decisions Log, with a link to the
@@ -102,12 +110,14 @@ A natural first run on a new project:
 3. **`/waypoint:phase auth 1`** — verifies prior phases are complete, runs
    the stub grep, and walks through planning phase 1.
 4. **`/waypoint:done auth 1`** — marks phase 1 complete, checks for any
-   new stubs that need to be tracked, and prompts for any architectural
-   decisions made during implementation.
+   new stubs that need to be tracked, prompts for any architectural
+   decisions made during implementation, and (if any ACs were assigned
+   to this phase) confirms the verify scripts exist.
 5. Repeat for subsequent phases. Once every phase is done, run
-   `/waypoint:done auth` to close out the milestone (it will refuse if
-   stubs remain). When several milestones are complete, run
-   `/waypoint:archive` to move them out of the active index.
+   `/waypoint:done auth` to close out the milestone. This runs all AC
+   verify commands and refuses to close if any AC is untested, failed,
+   or still has `verify: TODO`. When several milestones are complete,
+   run `/waypoint:archive` to move them out of the active index.
 
 ## Contributing
 
