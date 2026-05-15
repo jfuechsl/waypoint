@@ -229,6 +229,13 @@ Ask the user to pick an option or propose a variant. Then refine the
 chosen decomposition: for each phase, confirm **Focus**, **Key
 Deliverable**, and **Handoff** (what the next phase can rely on).
 
+**Final verification phase (optional).** When ACs are numerous,
+mutually dependent, or live in a regulated/safety-critical domain,
+you MAY include a final verification phase in one or more of the
+decomposition options. This is not mandatory and most milestones will
+not need one — but it is a legitimate decomposition choice when
+verification work is large enough to deserve its own coherent step.
+
 ## Step 5 — Incremental validation
 
 Present the full milestone definition section by section. Wait for
