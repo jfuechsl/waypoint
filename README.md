@@ -1,9 +1,15 @@
+<div align="center">
+
+<img src="./assets/logo.svg" alt="Waypoint logo" width="160" height="160">
+
 # Waypoint
 
-Structured milestone and phase planning for Claude Code.
+**Structured milestone and phase planning for Claude Code.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](./LICENSE)
 [![Claude Code](https://img.shields.io/badge/Claude%20Code-compatible-8A4FFF.svg)](https://code.claude.com/)
+
+</div>
 
 ## What is Waypoint?
 
