@@ -157,7 +157,20 @@ phase":
    ```
 5. Report what was found. Each hit becomes an explicit task prepended to the
    plan: locate stub → implement real logic → wire → delete comment.
-6. Proceed with normal planning (brainstorm → plan → execute), stub tasks first.
+5a. Acceptance Criteria review (mirrors `/waypoint:phase` step 5):
+    - Read the milestone file's `## Acceptance Criteria` section.
+    - Print: `ACs: N total — X ✅ / Y ⬜ / Z ❌ / W manual`.
+    - Ask the user: *"Any AC changes needed before planning this
+      phase? (add / edit / remove / none)"* Apply edits — new ACs get
+      `verify: TODO`, `status: ⬜ untested`; material edits to a
+      previously passed AC reset its status to ⬜.
+    - For each AC with `verify: TODO`, ask: *"Will this phase fully
+      deliver AC-N?"* If yes, add a verify-generation task to the
+      plan (stack detection → strategy mapping → test placement; see
+      `commands/phase.md` step 5 for the full mapping).
+6. Proceed with normal planning (brainstorm → plan → execute). Order
+   tasks: stub resolution first, then verify-script generation for any
+   ACs assigned to this phase, then the rest of the plan.
 7. After the plan is agreed: check if any decisions made during planning have
    lasting architectural impact (e.g. choice of library, data model, API
    contract, infrastructure pattern). For each that does:
@@ -191,6 +204,13 @@ When the user says a phase is done:
      impact, and a link to the updated doc.
    Do not skip this step — implementation often produces decisions that planning
    did not anticipate.
+4a. AC verify-script presence check (mirrors `/waypoint:done` step
+    4a). For any AC whose verify-generation was assigned to this
+    phase, confirm the script/test file exists and the milestone
+    file's `verify:` field is no longer `TODO`. If a verify is still
+    `TODO`, flag the user and ask whether the AC was actually
+    delivered. Do not run the verify command at phase completion —
+    verification runs only at milestone completion.
 
 ---
 
@@ -204,6 +224,22 @@ When the user says a milestone is done:
    ```
    If any results are found, **stop**. The milestone cannot be marked complete.
    Report the remaining stubs and ask the user how to proceed.
+1a. Pre-flight AC check (mirrors `/waypoint:done` step 5a). Print
+    `ACs: N total — X ✅ / Y ⬜ / Z ❌ / W manual`. Scan for any AC
+    with `verify: TODO`. If found, STOP — list them and prompt the
+    user that verify scripts must be generated before the milestone
+    can close. Do not flip status.
+1b. Run verifies. For each AC with `verify:` set to a real shell
+    command: run sequentially, capture exit code, update `status:`
+    — `✅ passed` on exit 0, `❌ failed` otherwise.
+1c. Handle failures. If any AC ended `❌ failed`, STOP. Print the
+    failure output, print the updated AC summary line, prompt the
+    user to fix or change the AC's type to `uat` and document why.
+    Do not flip status. Do not auto-retry.
+1d. Manual / UAT check. For each AC with `verify: manual`: confirm
+    the user has set `status: ✅ passed`. If any is still
+    `⬜ untested`, STOP and prompt the user to perform the UAT.
+1e. All passed. Only when every AC is `✅ passed` proceed to step 2.
 2. If zero stubs: update the milestone file header — set **Status** to
    `✅ Complete` and record the completion date.
 3. Update the milestone's row in `docs/roadmap.md` — set Status to
