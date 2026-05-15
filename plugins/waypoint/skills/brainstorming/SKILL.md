@@ -36,6 +36,10 @@ research → scope check → capability discussion → phase decomposition
   milestones.
 - Add entries to **Architecture References** or **Decisions Log** — those
   belong to phase planning and completion, not milestone definition.
+- Discuss verify commands, test tools, or framework choices during
+  AC capture. That belongs to phase planning. ACs at
+  milestone-definition time are tech-agnostic capability statements
+  with `verify: TODO`.
 
 ## Conversation rules
 
