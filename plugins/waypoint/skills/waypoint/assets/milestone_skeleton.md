@@ -27,6 +27,18 @@ milestone, note it here explicitly.>
 - All phases complete.
 - Zero `STUB[ms-<slug>]` comments remain in the codebase
   (`grep -r "STUB\[ms-<slug>" src/` returns no results).
+- All Acceptance Criteria are ✅ passed (see the Acceptance Criteria section).
+
+---
+
+## Acceptance Criteria
+
+> Business-level success criteria for this milestone. Each criterion is
+> verified automatically where possible; `uat` criteria require human
+> sign-off. A milestone cannot be marked complete while any criterion is
+> ⬜ untested or ❌ failed (see CLAUDE.md rules).
+
+_(none yet — populated during milestone definition)_
 
 ---
 
