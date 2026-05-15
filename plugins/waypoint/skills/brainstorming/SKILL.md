@@ -320,3 +320,106 @@ follow-up pointer:
 > *"Milestone `ms-<slug>` written to
 > `docs/milestones/ms-<slug>.md` and added to the roadmap. When
 > ready, run `/waypoint:phase <slug> 1` to start planning phase 1."*
+
+---
+
+## Appendix — Acceptance Criteria formats and types
+
+Reference material consulted in Step 5 when proposing AC blocks.
+Format is per-criterion, not per-milestone — multiple formats may
+appear in the same milestone. Pick the format that best fits each
+criterion's nature.
+
+### Formats
+
+**Gherkin (Given/When/Then).** Use when: BDD, automating acceptance
+tests, shared understanding between technical and non-technical
+stakeholders.
+
+````markdown
+```gherkin
+Feature: User checkout
+
+  Scenario: Successful checkout with valid payment
+    Given a user has items in their cart
+    And their payment method is valid
+    When they confirm the order
+    Then the order is created with status "confirmed"
+    And they receive a confirmation email
+```
+````
+
+**User Story + Bullet Criteria.** Use when: lightweight agile teams,
+criteria don't require formal test automation.
+
+```markdown
+As a shopper, I want to complete checkout in under 3 steps,
+so that I can purchase without friction.
+
+- [ ] Cart → Address → Payment → Confirmation flow works end-to-end
+- [ ] Back navigation preserves entered data
+- [ ] Guest checkout does not require account creation
+```
+
+**Decision Table.** Use when: logic has many combinations of inputs
+and expected outputs (pricing rules, permission matrices, discount
+tiers).
+
+```markdown
+| User Role | Subscription | Feature X | Expected Access |
+|-----------|-------------|-----------|-----------------|
+| admin     | any         | enabled   | ✅ allowed       |
+| user      | pro         | enabled   | ✅ allowed       |
+| user      | free        | enabled   | ❌ denied        |
+| user      | any         | disabled  | ❌ denied        |
+```
+
+**EARS (Easy Approach to Requirements Syntax).** Use when: regulated
+or safety-critical domains where requirements must be unambiguous and
+traceable.
+
+```markdown
+- WHEN a payment fails THEN the system SHALL NOT decrement inventory.
+- WHILE a checkout session is active THE system SHALL hold reserved stock.
+- WHERE tax jurisdiction is EU THE system SHALL apply VAT before displaying price.
+```
+
+**Sequence Diagram (Mermaid).** Use when: criteria involve complex
+multi-system interactions or need to communicate integration contracts.
+
+````markdown
+```mermaid
+sequenceDiagram
+  participant User
+  participant API
+  participant PaymentGateway
+  User->>API: POST /checkout
+  API->>PaymentGateway: charge(amount)
+  PaymentGateway-->>API: 200 OK
+  API-->>User: order_id + confirmation
+```
+````
+
+**BPMN (Mermaid flowchart).** Use when: criteria describe a business
+process involving multiple actors or systems with branching logic.
+
+````markdown
+```mermaid
+flowchart TD
+  A[User submits order] --> B{Payment valid?}
+  B -- Yes --> C[Reserve inventory]
+  C --> D[Send confirmation email]
+  B -- No --> E[Return payment error]
+  E --> F[Order not created]
+```
+````
+
+### Types
+
+| Type | What it asserts | Verify mechanism |
+|---|---|---|
+| `capability` | A user-facing behavior works end-to-end | Integration / e2e test |
+| `invariant` | A data or state property always holds | Property test or DB assertion |
+| `integration` | An external system connects and responds correctly | Probe script or contract test |
+| `performance` | A measurable threshold is met (latency, throughput, etc.) | Benchmark command |
+| `uat` | A workflow requires human sign-off | `verify: manual` — user sets status explicitly |
