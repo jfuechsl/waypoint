@@ -160,9 +160,12 @@ conversationally, in whatever order the discussion naturally leads:
   a single crisp capability sentence, not a feature list.
 - **Beneficiary.** Who or what benefits — end user, developer, other
   systems? This often sharpens scope naturally.
-- **Success signal.** How would you know this milestone is done if
-  you came back after a month away? Push for something observable
-  and verifiable.
+- **Acceptance criteria.** What does success look like when this
+  milestone is done? Describe the behaviors, invariants, or workflows
+  that must hold — in business or capability terms, not in test-tool
+  terms. Push for things that are observable and verifiable. This
+  conversation produces the milestone's structured Acceptance
+  Criteria (translated in Step 5).
 - **Existing foundation.** Which parts of what's already built does
   this milestone build on? Cross-check against context research —
   surface connections the user may not have mentioned.
