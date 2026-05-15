@@ -293,6 +293,12 @@ section from the approved definition:
 - **Phases table.** All phases with **Focus**, **Key Deliverable**,
   **Handoff** filled in; **Design Doc** = `TBD`, **Plan** = `TBD`,
   **Status** = `Not started`.
+- **Acceptance Criteria.** Replace the `_(none yet — populated during
+  milestone definition)_` placeholder with the approved AC blocks
+  from Step 5, numbered AC-1, AC-2, …. Each block has `format:`,
+  `type:`, body, `verify: TODO` (or `verify: manual` for `uat`), and
+  `status: ⬜ untested`. AC numbers are stable — never renumber after
+  assignment.
 - **Architecture References** — leave the placeholder row
   (`_(none yet)_`). Populated later during phase planning.
 - **Decisions Log** — leave the placeholder row (`_(none yet)_`).
